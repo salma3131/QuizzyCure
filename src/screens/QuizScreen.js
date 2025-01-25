@@ -12,34 +12,210 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const getQuestions = (category, difficulty) => {
-  // Sample questions - you can expand this
-  return [
-    {
-      id: 1,
-      question: 'What is the recommended daily water intake?',
-      options: [
-        '2-3 liters',
-        '1 liter',
-        '5 liters',
-        '0.5 liters'
-      ],
-      correctAnswer: 0,
-      explanation: 'The recommended daily water intake is 2-3 liters (8-10 glasses). This helps maintain proper hydration, supports bodily functions, and promotes overall health. Regular water intake throughout the day is essential for:\n\n• Regulating body temperature\n• Maintaining blood pressure\n• Supporting digestion\n• Protecting organs and tissues\n• Carrying nutrients to cells'
-    },
-    {
-      id: 2,
-      question: 'Which of these is a good source of protein?',
-      options: [
-        'White bread',
-        'Lentils',
-        'Sugar',
-        'Butter'
-      ],
-      correctAnswer: 1,
-      explanation: 'Lentils are an excellent source of plant-based protein. Here\'s why they\'re important:\n\n• Contains 18g of protein per cup\n• Rich in dietary fiber\n• High in iron and B vitamins\n• Low in fat\n• Affordable and sustainable protein source\n• Helps in muscle building and repair'
-    },
-    // Add more questions here
-  ];
+  const questions = {
+    Nutrition: [
+      {
+        id: 1,
+        question: 'Which vitamin is essential for blood clotting?',
+        options: [
+          'Vitamin A',
+          'Vitamin K',
+          'Vitamin C',
+          'Vitamin E'
+        ],
+        correctAnswer: 1,
+        explanation: 'Vitamin K is essential for blood clotting. Important facts:\n\n• Helps wounds heal properly\n• Found in green leafy vegetables\n• Important for bone health\n• Works with calcium\n• Deficiency can cause bleeding\n• Also important for heart health'
+      },
+      {
+        id: 2,
+        question: 'Which mineral is most important for bone health?',
+        options: [
+          'Iron',
+          'Zinc',
+          'Calcium',
+          'Sodium'
+        ],
+        correctAnswer: 2,
+        explanation: 'Calcium is crucial for bone health because:\n\n• Main component of bones and teeth\n• Prevents osteoporosis\n• Needed for muscle function\n• Important for nerve signaling\n• Found in dairy products\n• Requires vitamin D for absorption'
+      },
+      {
+        id: 3,
+        question: 'How many servings of fruits and vegetables should you eat daily?',
+        options: [
+          '1-2 servings',
+          '2-3 servings',
+          '5-9 servings',
+          '10+ servings'
+        ],
+        correctAnswer: 2,
+        explanation: '5-9 servings of fruits and vegetables daily is recommended because:\n\n• Provides essential vitamins\n• High in fiber\n• Contains antioxidants\n• Supports immune system\n• Helps prevent diseases\n• Maintains healthy weight'
+      },
+      {
+        id: 4,
+        question: 'Which meal is the most important of the day?',
+        options: [
+          'Breakfast',
+          'Lunch',
+          'Dinner',
+          'Snacks'
+        ],
+        correctAnswer: 0,
+        explanation: 'Breakfast is the most important meal because:\n\n• Jumpstarts metabolism\n• Provides energy for the day\n• Improves concentration\n• Prevents overeating later\n• Stabilizes blood sugar\n• Helps maintain healthy weight'
+      }
+    ],
+    Hygiene: [
+      {
+        id: 1,
+        question: 'How often should you brush your teeth?',
+        options: [
+          'Once a day',
+          'Twice a day',
+          'After every meal',
+          'Once a week'
+        ],
+        correctAnswer: 1,
+        explanation: 'Brushing twice a day is recommended because:\n\n• Removes plaque buildup\n• Prevents cavities\n• Maintains fresh breath\n• Prevents gum disease\n• Morning removes night bacteria\n• Evening removes day\'s food particles'
+      },
+      {
+        id: 2,
+        question: 'What is the proper way to wash your face?',
+        options: [
+          'Hot water only',
+          'With harsh soap',
+          'Gentle cleanser and lukewarm water',
+          'Just wipe with tissue'
+        ],
+        correctAnswer: 2,
+        explanation: 'Using gentle cleanser and lukewarm water is best because:\n\n• Removes dirt without damaging skin\n• Maintains skin\'s natural oils\n• Prevents irritation\n• Right temperature doesn\'t strip skin\n• Cleanses pores effectively\n• Suitable for all skin types'
+      },
+      {
+        id: 3,
+        question: 'How often should you wash your bed sheets?',
+        options: [
+          'Once a year',
+          'Once a month',
+          'Once a week',
+          'Every day'
+        ],
+        correctAnswer: 2,
+        explanation: 'Washing bed sheets once a week is important because:\n\n• Removes dead skin cells\n• Eliminates dust mites\n• Prevents allergies\n• Maintains hygiene\n• Promotes better sleep\n• Reduces acne breakouts'
+      },
+      {
+        id: 4,
+        question: 'What is the correct order of skincare routine?',
+        options: [
+          'Moisturizer, Cleanser, Toner',
+          'Cleanser, Toner, Moisturizer',
+          'Toner, Moisturizer, Cleanser',
+          'Any order is fine'
+        ],
+        correctAnswer: 1,
+        explanation: 'The correct order is Cleanser, Toner, Moisturizer because:\n\n• Cleanser removes dirt first\n• Toner balances skin pH\n• Moisturizer locks in hydration\n• Maximizes product effectiveness\n• Follows skin absorption logic\n• Prevents product interference'
+      }
+    ],
+    'Physical Health': [
+      {
+        id: 1,
+        question: 'What type of exercise builds muscle most effectively?',
+        options: [
+          'Yoga',
+          'Resistance training',
+          'Walking',
+          'Swimming'
+        ],
+        correctAnswer: 1,
+        explanation: 'Resistance training is most effective for muscle building because:\n\n• Creates micro-tears in muscles\n• Stimulates muscle growth\n• Increases strength\n• Boosts metabolism\n• Improves bone density\n• Enhances functional fitness'
+      },
+      {
+        id: 2,
+        question: 'What is the best way to prevent back pain?',
+        options: [
+          'Bed rest',
+          'Good posture and core strength',
+          'Avoiding all exercise',
+          'Taking pain medication'
+        ],
+        correctAnswer: 1,
+        explanation: 'Good posture and core strength prevent back pain by:\n\n• Supporting spine alignment\n• Reducing muscle strain\n• Distributing weight evenly\n• Preventing muscle imbalances\n• Improving balance\n• Reducing injury risk'
+      },
+      {
+        id: 3,
+        question: 'How often should you take breaks when sitting for long periods?',
+        options: [
+          'Every 30-60 minutes',
+          'Once a day',
+          'Every 4 hours',
+          'No breaks needed'
+        ],
+        correctAnswer: 0,
+        explanation: 'Taking breaks every 30-60 minutes is important because:\n\n• Prevents muscle stiffness\n• Improves circulation\n• Reduces eye strain\n• Maintains productivity\n• Prevents blood clots\n• Reduces back pain'
+      },
+      {
+        id: 4,
+        question: 'Which activity is best for cardiovascular health?',
+        options: [
+          'Weight lifting',
+          'Stretching',
+          'Aerobic exercise',
+          'Balance training'
+        ],
+        correctAnswer: 2,
+        explanation: 'Aerobic exercise is best for cardiovascular health because:\n\n• Strengthens heart muscle\n• Improves blood circulation\n• Lowers blood pressure\n• Increases lung capacity\n• Burns calories effectively\n• Reduces heart disease risk'
+      }
+    ],
+    'Mental Health': [
+      {
+        id: 1,
+        question: 'What is mindfulness?',
+        options: [
+          'Thinking about the future',
+          'Being present in the moment',
+          'Sleeping all day',
+          'Avoiding problems'
+        ],
+        correctAnswer: 1,
+        explanation: 'Mindfulness means being present in the moment because:\n\n• Reduces anxiety about future\n• Increases self-awareness\n• Improves focus\n• Reduces stress\n• Enhances emotional control\n• Promotes mental clarity'
+      },
+      {
+        id: 2,
+        question: 'Which is a healthy way to deal with negative emotions?',
+        options: [
+          'Bottling them up',
+          'Expressing them appropriately',
+          'Ignoring them',
+          'Taking them out on others'
+        ],
+        correctAnswer: 1,
+        explanation: 'Expressing emotions appropriately is healthy because:\n\n• Prevents emotional buildup\n• Maintains mental balance\n• Improves relationships\n• Reduces stress\n• Promotes self-understanding\n• Leads to better solutions'
+      },
+      {
+        id: 3,
+        question: 'What is a sign of emotional intelligence?',
+        options: [
+          'Never showing emotions',
+          'Understanding others\' feelings',
+          'Always being happy',
+          'Avoiding conflict'
+        ],
+        correctAnswer: 1,
+        explanation: 'Understanding others\' feelings shows emotional intelligence because:\n\n• Builds empathy\n• Improves relationships\n• Enables better communication\n• Shows self-awareness\n• Helps resolve conflicts\n• Strengthens social bonds'
+      },
+      {
+        id: 4,
+        question: 'How can you improve mental resilience?',
+        options: [
+          'Avoiding challenges',
+          'Building coping strategies',
+          'Ignoring problems',
+          'Depending on others'
+        ],
+        correctAnswer: 1,
+        explanation: 'Building coping strategies improves mental resilience by:\n\n• Developing problem-solving skills\n• Creating emotional strength\n• Building self-confidence\n• Learning from challenges\n• Adapting to change\n• Maintaining mental health'
+      }
+    ]
+  };
+
+  return questions[category.name] || [];
 };
 
 const QuizScreen = ({ route, navigation }) => {
